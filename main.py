@@ -85,7 +85,7 @@ def heuristic(state, target_volume):
     """
     h1 = abs(sum(state.volumes) - target_volume)
     h2 = abs(state.volumes[0] - target_volume)
-    h_tot = (h1 + h2) / 2 
+    h_tot = (h1 + h2) / 2
     return h_tot
     # return abs(sum(state.volumes) - target_volume)
 
@@ -104,8 +104,10 @@ def a_star(start_volumes, capacities, target_volume):
     heap = [start_state]
     heapq.heapify(heap)
     visited = []
+    visited_str = []
+
     
-    MAX_V = 10 ** 5
+    MAX_V = 10 ** 4
     while heap and len(visited) < MAX_V:
         
         """
@@ -118,9 +120,11 @@ def a_star(start_volumes, capacities, target_volume):
 #             print(len(visited), end=", ")
 
         state = heapq.heappop(heap)
+        visited.append(state)
+        visited_str.append(str(state))
         if state == target_volume:
             return (state.g, state, visited)
-        visited.append(state)
+
         next_states = get_next_states(state, capacities)
         
         # Generating next states and adding them to the heap
@@ -130,7 +134,14 @@ def a_star(start_volumes, capacities, target_volume):
             next_state.h = heuristic(next_state, target_volume)
             next_state.f = next_state.g + next_state.h
             next_state._prev = state
-            heapq.heappush(heap, next_state)
+
+            if (str(next_state) in visited_str):
+                if next_state.f < visited[visited_str.index(str(next_state))].f:
+                    heapq.heappush(heap, next_state)
+                else:
+                    continue
+            else:
+                heapq.heappush(heap, next_state)
 
     return (-1, state, visited)
             
@@ -166,7 +177,13 @@ def main():
 
     # run
     res, result_state, visited = a_star(start_volumes, pitcher_capacities, target_volume)
-    print(res)
+    
+    if res != -1:
+        print_path(result_state)
+        print("\n", len(visited), "state visited\n")
+        print(f"The found path is {res} steps as show above\n")
+    else:
+        print(-1)
 
     # print_path(result_state)
     # print_path(len(visited))
