@@ -7,7 +7,7 @@ The water pitcher problem is a classic problem in computer science.
 In this specific version text file is given with two lines, first for the capacities of the pitcher and second for the target amount. The goal is to measure target amount of water in the infinite pitcher. The problem can be represented as a graph where each node represents a possible state of the pitchers (i.e., how much water is in each pitcher) and each edge represents a possible pouring operation that can be performed to reach the next state.
 
 The A* algorithm is a heuristic search algorithm that can be used to find the shortest path between two nodes in a graph. In the case of the water pitcher problem, average of two equations is used.
-$$\frac{|\sum volumes - target| + |infinitePitcher-target|}{2}$$
+$$\frac{(|\sum volumes - target|) + (|infinitePitcher-target|)}{2}$$
 Where $\sum volumes$ is sum of volumes across all pitchers, and $target$ si amount of water that should be filled in the $infinitePitcher$ (goal state). 
 
 ## Requirements
