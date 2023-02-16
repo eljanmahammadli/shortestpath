@@ -8,7 +8,7 @@ In this specific version text file is given with two lines, first for the capaci
 
 The A* algorithm is a heuristic search algorithm that can be used to find the shortest path between two nodes in a graph. In the case of the water pitcher problem, average of two equations is used.
 $$\frac{(|\sum volumes - target|) + (|infinitePitcher-target|)}{2}$$
-Where $\sum volumes$ is sum of volumes across all pitchers, and $target$ si amount of water that should be filled in the $infinitePitcher$ (goal state). 
+Where $\sum volumes$ is sum of volumes across all pitchers, and $target$ is amount of water that should be filled in the $infinitePitcher$ (goal state). 
 
 ## Requirements
 
