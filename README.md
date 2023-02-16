@@ -38,16 +38,16 @@ There are 3 test files with 11 test functions in total for several subroutines o
 - `test_get_next_states_case_3()`
 
 `test_a_star.py`
-- `test_a_star_case_1`
-- `test_a_star_case_2`
-- `test_a_star_case_3`
-- `test_a_star_case_4`
-- `test_a_star_case_5`
+- `test_a_star_case_1()`
+- `test_a_star_case_2()`
+- `test_a_star_case_3()`
+- `test_a_star_case_4()`
+- `test_a_star_case_5()`
 
 Run `pytest` to test all the functions above.
 
 ## Implementation
-In order to get all the states from the given state `get_next_states` function is used with arguments `state` and `capacities`. The A* algorithm is performed by the help of `a_star` function with `start_volumes`, `capacities`, `target_volume` input parameters. The heapq data structure is used to store states. After initializing with empty pitchers, in each step state with least `f` value is popped out of heap and checked if it is a goal state. If not, then generate next statesand add to the heap. After exploring all the states, limited number of iterations have been set if there is no path then program returns -1. Additional two functions `txt_parser` and `print_path` is used, former for parsing the inputfrom text file and latter for printing the found path
+In order to get all the states from the given state `get_next_states` function is used with arguments `state` and `capacities`. The A* algorithm is performed by the help of `a_star` function with `start_volumes`, `capacities`, `target_volume` input parameters. The heapq data structure is used to store states. After initializing with empty pitchers, in each step state with least `f` value is popped out of heap and checked if it is a goal state. If not, then generate next statesand add to the heap. After exploring all the states, limited number of iterations have been set if there is no path then program returns -1. Additional two functions `txt_parser` and `print_path` is used, former for parsing the input from text file and latter for printing the found path.
 
 ## Conclusion
 
